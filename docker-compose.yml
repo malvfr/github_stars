@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  dbdesafio:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "desafio_dev"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  app:
+    build: .
+    environment:
+      DB_USER: postgres
+      DB_PASS: postgres
+      DB_DATABASE: desafio_dev
+      DB_HOSTNAME: dbdesafio
+    volumes:
+      - ./:/app
+    ports:
+      - "4000:4000"
+    depends_on:
+      - dbdesafio
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
