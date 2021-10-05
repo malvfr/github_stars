@@ -13,7 +13,7 @@ To setup the application environment, use docker-compose to quickly bootstrap an
 The command below will spin up the server and a local database
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 After the server and the application run, you can access the Application through "http://localhost:4000/api"
