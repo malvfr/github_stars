@@ -8,7 +8,8 @@
 use Mix.Config
 
 config :github_stars,
-  ecto_repos: [GithubStars.Repo]
+  ecto_repos: [GithubStars.Repo],
+  github_auth: System.get_env("GITHUB_AUTH") || ""
 
 # Configures the endpoint
 config :github_stars, GithubStarsWeb.Endpoint,

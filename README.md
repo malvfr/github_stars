@@ -29,6 +29,12 @@ Configure the environment variables for a running Postgres instance
   DB_HOSTNAME: hostname
 ```
 
+You also need to add your github authentication bearer token as an environment variable
+
+```
+  GITHUB_AUTH: "Bearer ..."
+```
+
 ### Install dependencies
 
 ```bash
