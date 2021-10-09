@@ -22,6 +22,7 @@ services:
       DB_PASS: postgres
       DB_DATABASE: desafio_dev
       DB_HOSTNAME: dbdesafio
+      GITHUB_AUTH: "Bearer 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"
     volumes:
       - ./:/app
     ports:

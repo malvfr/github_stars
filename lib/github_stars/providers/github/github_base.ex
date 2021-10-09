@@ -4,9 +4,11 @@ defmodule GithubStars.Provider.Http.GithubBase do
   """
   use HTTPoison.Base
 
+  @github_auth Application.fetch_env!(:github_stars, :github_auth)
+
   @default_headers [
     # For practical reasons, we are hard coding the token. We could retrieve the token via user request headers or use the system environment
-    {"Authorization", "Bearer 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"},
+    {"Authorization", @github_auth},
     {"Content-Type", "application/json"},
     {"charset", "UTF-8"},
     {"Connection", "keep-alive"}
